@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jessica Luberisse — Brand & Marketing Consultant</title>
+  <meta name="description" content="Jessica Luberisse is a freelance brand and marketing consultant specializing in new product development, brand strategy, and go-to-market launches for consumer brands. NYU-trained, with a decade at Unilever, Tarte, and The Honey Pot." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream: #f6f2ec;
+      --paper: #fbf9f5;
+      --ink: #1f1b17;
+      --muted: #6b6157;
+      --line: #e3dcd1;
+      --accent: #b5623a;      /* warm terracotta */
+      --accent-deep: #8f4a2b;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      overflow-wrap: break-word;
+    }
+
+    body { overflow-x: hidden; }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: transform .18s ease, background .18s ease, color .18s ease;
+    }
+    .btn-solid { background: var(--ink); color: var(--paper); }
+    .btn-solid:hover { background: var(--accent-deep); transform: translateY(-2px); }
+    .btn-ghost { border: 1px solid var(--ink); color: var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+
+    /* ---------- Nav ---------- */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,249,245,.82);
+      backdrop-filter: saturate(160%) blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+    .brand { font-family: 'Fraunces', serif; font-size: 21px; letter-spacing: .01em; }
+    .brand b { font-weight: 500; }
+    .nav-links { display: flex; gap: 34px; align-items: center; }
+    .nav-links a { font-size: 14px; color: var(--muted); font-weight: 500; transition: color .15s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { padding: 10px 22px; border-radius: 100px; background: var(--ink); color: var(--paper) !important; }
+    .nav-cta:hover { background: var(--accent-deep); }
+    .menu-btn { display: none; background: none; border: 0; font-size: 24px; cursor: pointer; color: var(--ink); }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 90px 0 70px; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 60px; align-items: center; }
+    .hero h1 { font-size: clamp(34px, 6.2vw, 82px); margin: 22px 0 26px; }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero p.lead { font-size: 19px; color: var(--muted); max-width: 30em; margin-bottom: 34px; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .portrait {
+      aspect-ratio: 4/5; border-radius: 8px; overflow: hidden;
+      background: linear-gradient(135deg, #e0d5c6 0%, #cdbfae 100%);
+      position: relative;
+    }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; }
+    .portrait .ph {
+      position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
+      color: var(--muted); font-size: 13px; padding: 20px; background: #ece4d8;
+    }
+
+    /* ---------- Marquee / trust ---------- */
+    .trust { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 26px 0; background: var(--cream); }
+    .trust .wrap { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; justify-content: center; }
+    .trust span { font-family: 'Fraunces', serif; font-size: 20px; color: #b1a794; letter-spacing: .02em; }
+    .trust small { display: block; text-align: center; width: 100%; color: var(--muted); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 6px; }
+
+    /* ---------- Section shells ---------- */
+    section.block { padding: 96px 0; }
+    .section-head { max-width: 620px; margin-bottom: 54px; }
+    .section-head h2 { font-size: clamp(32px, 4.4vw, 50px); margin: 14px 0 16px; }
+    .section-head p { color: var(--muted); font-size: 17px; }
+
+    /* ---------- About ---------- */
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; }
+    .about-img { aspect-ratio: 5/6; border-radius: 8px; overflow: hidden; background: #ece4d8; }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+    .about-img .ph { height: 100%; display: grid; place-items: center; color: var(--muted); font-size: 13px; text-align: center; padding: 20px; }
+    .about-body h2 { font-size: clamp(30px, 4vw, 46px); margin-bottom: 22px; }
+    .about-body p { color: #4a423a; margin-bottom: 18px; font-size: 17px; }
+    .about-body p.placeholder { background: #f3e9dd; border-left: 3px solid var(--accent); padding: 12px 16px; border-radius: 0 6px 6px 0; color: var(--accent-deep); font-size: 15px; }
+    .stats { display: flex; gap: 44px; margin-top: 30px; flex-wrap: wrap; }
+    .stats .num { font-family: 'Fraunces', serif; font-size: 40px; color: var(--accent); }
+    .stats .lbl { font-size: 13px; color: var(--muted); }
+
+    /* ---------- Services ---------- */
+    .services { background: var(--cream); }
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .svc {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 34px 30px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .svc:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -24px rgba(31,27,23,.4); }
+    .svc .no { font-family: 'Fraunces', serif; font-size: 15px; color: var(--accent); letter-spacing: .1em; }
+    .svc h3 { font-size: 23px; margin: 16px 0 12px; }
+    .svc p { color: var(--muted); font-size: 15px; }
+    .svc ul { list-style: none; margin-top: 16px; }
+    .svc li { font-size: 14px; color: #574e45; padding: 5px 0 5px 20px; position: relative; }
+    .svc li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+
+    /* ---------- Process ---------- */
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 20px; }
+    .step .step-no { font-family: 'Fraunces', serif; font-size: 46px; color: var(--line); line-height: 1; }
+    .step h3 { font-size: 19px; margin: 8px 0 8px; }
+    .step p { color: var(--muted); font-size: 14px; }
+
+    /* ---------- Results / testimonial ---------- */
+    .results { background: var(--ink); color: var(--paper); }
+    .results .section-head h2 { color: var(--paper); }
+    .results .section-head p { color: #b7ac9d; }
+    .results .eyebrow { color: #d99a76; }
+    .quote-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .quote-grid > * { min-width: 0; }
+    .quote { border: 1px solid #37302a; border-radius: 12px; padding: 32px; background: #262019; }
+    .quote p { font-family: 'Fraunces', serif; font-size: 20px; line-height: 1.45; margin-bottom: 20px; font-style: italic; color: #f1e9dd; }
+    .quote .who { font-size: 13px; color: #b7ac9d; }
+    .quote .who b { color: var(--paper); font-weight: 600; font-style: normal; }
+
+    /* ---------- CTA ---------- */
+    .cta h2 { font-size: clamp(34px, 5vw, 58px); margin-bottom: 20px; }
+    .cta p { color: var(--muted); font-size: 18px; max-width: 34em; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .contact-info .btn { margin-top: 8px; }
+    .contact-simple { max-width: 720px; text-align: center; }
+    .contact-simple p { margin: 0 auto 30px; }
+    .contact-buttons { justify-content: center; margin-bottom: 28px; }
+    .contact-simple .contact-meta { display: inline-flex; flex-direction: column; gap: 12px; text-align: left; margin-top: 0; }
+    .contact-meta { margin-top: 30px; display: grid; gap: 14px; }
+    .contact-meta a, .contact-meta span { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; color: #4a423a; overflow-wrap: anywhere; }
+    .contact-meta .ic { color: var(--accent); font-size: 18px; width: 22px; flex: none; }
+    .contact-meta a:hover { color: var(--accent-deep); }
+    form.lead-form { display: grid; gap: 16px; background: var(--cream); border: 1px solid var(--line); border-radius: 14px; padding: 32px; }
+    .field { display: grid; gap: 7px; }
+    .field label { font-size: 13px; font-weight: 600; letter-spacing: .02em; color: #574e45; }
+    .field input, .field textarea, .field select {
+      font-family: inherit; font-size: 15px; color: var(--ink);
+      background: var(--paper); border: 1px solid var(--line); border-radius: 9px; padding: 12px 14px;
+      transition: border-color .15s, box-shadow .15s;
+      width: 100%; min-width: 0;
+    }
+    .contact-grid > * { min-width: 0; }
+    .field textarea { resize: vertical; min-height: 120px; }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(181,98,58,.15);
+    }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    form.lead-form button { border: 0; cursor: pointer; width: 100%; margin-top: 4px; }
+    .form-note { font-size: 12px; color: #a89d8d; text-align: center; }
+    #formOk { display: none; text-align: center; padding: 40px 20px; }
+    #formOk h3 { font-size: 26px; color: var(--accent-deep); margin-bottom: 8px; }
+    #formOk p { font-size: 15px; color: var(--muted); }
+
+    /* ---------- Footer ---------- */
+    footer { border-top: 1px solid var(--line); padding: 46px 0; background: var(--cream); }
+    .foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; }
+    .foot .brand { font-size: 19px; }
+    .foot-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .foot-links a { font-size: 14px; color: var(--muted); }
+    .foot-links a:hover { color: var(--ink); }
+    .copy { width: 100%; font-size: 13px; color: #a89d8d; border-top: 1px solid var(--line); padding-top: 22px; margin-top: 8px; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .menu-btn { display: block; }
+      .nav-links.open {
+        display: flex; position: absolute; top: 74px; left: 0; right: 0;
+        flex-direction: column; gap: 0; background: var(--paper); border-bottom: 1px solid var(--line); padding: 10px 0;
+      }
+      .nav-links.open a { padding: 14px 28px; width: 100%; }
+      .nav-links.open .nav-cta { margin: 10px 28px; text-align: center; }
+      .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .portrait { max-width: 420px; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .quote-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+      .field-row { grid-template-columns: 1fr; }
+      section.block { padding: 70px 0; }
+    }
+    @media (max-width: 520px) {
+      .process-grid { grid-template-columns: 1fr; }
+      .stats { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= NAV ================= -->
+  <header>
+    <div class="wrap nav">
+      <a href="#top" class="brand">Jessica <b>Luberisse</b></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#results">Results</a>
+        <a href="#contact" class="nav-cta">Work with me</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <a id="top"></a>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Freelance Brand &amp; Marketing Consultant</span>
+        <h1>Marketing that <em>moves</em> the needle, not just the numbers.</h1>
+        <p class="lead">I help consumer brands launch new products, sharpen their positioning, and go to market with strategy that drives real growth — built on a decade inside brands like Unilever, Tarte, and The Honey Pot.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-solid">Book a discovery call</a>
+          <a href="#services" class="btn btn-ghost">See how I help</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="assets/jessica-hero.jpg" alt="Jessica Luberisse, freelance marketing consultant"
+             onerror="this.style.display='none';this.parentElement.querySelector('.ph').style.display='grid';" />
+        <div class="ph" style="display:none">Add hero portrait →<br />assets/jessica-hero.jpg<br />(4:5 vertical)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST ================= -->
+  <div class="trust">
+    <div class="wrap">
+      <small>Brand &amp; innovation experience across</small>
+      <span>The Honey Pot Co.</span>
+      <span>Unilever</span>
+      <span>Tarte Cosmetics</span>
+      <span>Budweiser</span>
+      <span>Nike</span>
+    </div>
+  </div>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="block" id="about">
+    <div class="wrap about-grid">
+      <div class="about-img">
+        <img src="assets/jessica-about.jpg" alt="Jessica Luberisse"
+             onerror="this.style.display='none';this.parentElement.querySelector('.ph').style.display='grid';" />
+        <div class="ph" style="display:none">Add about photo →<br />assets/jessica-about.jpg<br />(5:6 vertical)</div>
+      </div>
+      <div class="about-body">
+        <span class="eyebrow">About Jessica</span>
+        <h2>A decade of brand building, now working for you.</h2>
+        <p>Jessica Luberisse is a brand and innovation marketer with more than ten years launching products and building brands inside some of the world's best-known companies — from Unilever and Anheuser-Busch to Tarte Cosmetics and The Honey Pot Company.</p>
+        <p>As an Innovation Brand Manager, she specializes in new product development and go-to-market strategy: taking ideas from concept to shelf, sharpening positioning, and building launch plans that actually move product. She now brings that big-brand expertise to founders and growing consumer brands as a freelance consultant.</p>
+        <p>She holds an M.S. in Marketing with a concentration in Brand Management from New York University, and works in both English and French.</p>
+        <div class="stats">
+          <div><div class="num">10+</div><div class="lbl">Years in brand &amp; innovation</div></div>
+          <div><div class="num">5+</div><div class="lbl">National brands built</div></div>
+          <div><div class="num">NYU</div><div class="lbl">M.S. Brand Management</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="block services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Services</span>
+        <h2>Ways we can work together</h2>
+        <p>Whether you need a full strategy or an extra set of expert hands, engagements are shaped around your goals and stage.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc">
+          <div class="no">01</div>
+          <h3>Brand Strategy &amp; Positioning</h3>
+          <p>Sharpen who you are, who you're for, and why you win — the foundation everything else builds on.</p>
+          <ul>
+            <li>Brand positioning &amp; architecture</li>
+            <li>Messaging &amp; value proposition</li>
+            <li>Category &amp; competitive analysis</li>
+            <li>Brand guidelines</li>
+          </ul>
+        </div>
+        <div class="svc">
+          <div class="no">02</div>
+          <h3>Product Innovation &amp; NPD</h3>
+          <p>From concept to shelf — turning ideas into products people actually want to buy.</p>
+          <ul>
+            <li>New product development</li>
+            <li>Concept &amp; consumer testing</li>
+            <li>Innovation pipeline &amp; roadmaps</li>
+            <li>Naming &amp; packaging direction</li>
+          </ul>
+        </div>
+        <div class="svc">
+          <div class="no">03</div>
+          <h3>Go-to-Market &amp; Launch</h3>
+          <p>Launch plans that hit real business goals — built from a decade launching national consumer brands.</p>
+          <ul>
+            <li>Go-to-market strategy</li>
+            <li>Launch planning &amp; timelines</li>
+            <li>Channel &amp; retail strategy</li>
+            <li>Cross-functional execution</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="block" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The Process</span>
+        <h2>Simple, collaborative, results-driven</h2>
+        <p>No jargon, no black boxes. You'll always know what we're doing and why.</p>
+      </div>
+      <div class="process-grid">
+        <div class="step">
+          <div class="step-no">01</div>
+          <h3>Discover</h3>
+          <p>We dig into your goals, audience, and what's working (and what isn't).</p>
+        </div>
+        <div class="step">
+          <div class="step-no">02</div>
+          <h3>Strategize</h3>
+          <p>I build a focused plan tailored to your stage, budget, and ambitions.</p>
+        </div>
+        <div class="step">
+          <div class="step-no">03</div>
+          <h3>Execute</h3>
+          <p>We bring the plan to life — solo, with your team, or with my network.</p>
+        </div>
+        <div class="step">
+          <div class="step-no">04</div>
+          <h3>Optimize</h3>
+          <p>We measure what matters and refine so results compound over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RESULTS ================= -->
+  <section class="block results" id="results">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What clients say</span>
+        <h2>Kind words &amp; real outcomes</h2>
+        <p>Sample testimonials shown below — real client stories coming soon.</p>
+      </div>
+      <!-- SAMPLE testimonials — replace with real client quotes before promoting the site -->
+      <div class="quote-grid">
+        <div class="quote">
+          <p>"Jessica took our new product from a rough concept to a shelf-ready launch in a single quarter. Her go-to-market plan gave the whole team a clear playbook — and it delivered."</p>
+          <div class="who"><b>Sample Client</b> — Founder, DTC wellness brand</div>
+        </div>
+        <div class="quote">
+          <p>"She has a rare mix of big-brand rigor and startup speed. Our positioning finally clicks, and our launch numbers show it. I'd work with her on every launch."</p>
+          <div class="who"><b>Sample Client</b> — Head of Marketing, beauty startup</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA / CONTACT ================= -->
+  <section class="block cta" id="contact">
+    <div class="wrap contact-simple">
+      <span class="eyebrow">Let's talk</span>
+      <h2>Ready to grow with intention?</h2>
+      <p>Whether you're a founder, a small business, a DTC brand, or a personal brand — tell me where you want to go and I'll reply within two business days to see if we're a fit.</p>
+      <div class="hero-cta contact-buttons">
+        <a href="mailto:hello@jessicaluberisse.com" class="btn btn-solid">Email Jessica</a>
+        <a href="https://www.linkedin.com/in/jessicaluberisse/" target="_blank" rel="noopener" class="btn btn-ghost">Connect on LinkedIn</a>
+      </div>
+      <div class="contact-meta">
+        <a href="mailto:hello@jessicaluberisse.com"><span class="ic">✉</span> hello@jessicaluberisse.com</a>
+        <a href="https://instagram.com/jesssohappens_" target="_blank" rel="noopener"><span class="ic">◎</span> @jesssohappens_</a>
+        <span><span class="ic">◔</span> Replies within 2 business days</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="wrap foot">
+      <a href="#top" class="brand">Jessica <b>Luberisse</b></a>
+      <div class="foot-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#results">Results</a>
+        <a href="mailto:hello@jessicaluberisse.com">Contact</a>
+      </div>
+      <div class="copy">© <span id="yr"></span> Jessica Luberisse · Freelance Marketing Consultant. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    var btn = document.getElementById('menuBtn');
+    var links = document.getElementById('navLinks');
+    btn.addEventListener('click', function () { links.classList.toggle('open'); });
+    links.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') links.classList.remove('open');
+    });
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
