@@ -133,7 +133,7 @@
 
     /* ---------- Services ---------- */
     .services { background: var(--cream); }
-    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(238px, 1fr)); gap: 22px; }
     .svc {
       background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 34px 30px;
       transition: transform .2s ease, box-shadow .2s ease;
@@ -145,6 +145,13 @@
     .svc ul { list-style: none; margin-top: 16px; }
     .svc li { font-size: 14px; color: #574e45; padding: 5px 0 5px 20px; position: relative; }
     .svc li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+    .entry-offer { margin-top: 26px; background: var(--ink); color: var(--paper); border-radius: 14px; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .entry-offer .eyebrow { color: #d99a76; }
+    .entry-offer h3 { font-size: 28px; margin: 10px 0 12px; }
+    .entry-offer p { color: #b7ac9d; font-size: 16px; max-width: 46em; }
+    .entry-offer .btn { flex: none; }
+    .entry-offer .btn-solid { background: var(--accent); color: var(--paper); }
+    .entry-offer .btn-solid:hover { background: #d99a76; }
 
     /* ---------- Process ---------- */
     .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 20px; }
@@ -173,6 +180,12 @@
     .contact-simple p { margin: 0 auto 30px; }
     .contact-buttons { justify-content: center; margin-bottom: 28px; }
     .contact-simple .contact-meta { display: inline-flex; flex-direction: column; gap: 12px; text-align: left; margin-top: 0; }
+    .contact-final { display: grid; grid-template-columns: .82fr 1.18fr; gap: 56px; align-items: center; }
+    .contact-photo { aspect-ratio: 4/5; border-radius: 12px; overflow: hidden; background: #ece4d8; }
+    .contact-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .contact-photo .ph { height: 100%; display: grid; place-items: center; color: var(--muted); font-size: 12px; text-align: center; padding: 16px; }
+    .contact-copy .contact-buttons { justify-content: flex-start; margin: 26px 0; }
+    .contact-copy .contact-meta { display: grid; gap: 12px; margin-top: 0; }
     .contact-meta { margin-top: 30px; display: grid; gap: 14px; }
     .contact-meta a, .contact-meta span { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; color: #4a423a; overflow-wrap: anywhere; }
     .contact-meta .ic { color: var(--accent); font-size: 18px; width: 22px; flex: none; }
@@ -224,6 +237,9 @@
       .quote-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 36px; }
       .field-row { grid-template-columns: 1fr; }
+      .entry-offer { flex-direction: column; align-items: flex-start; padding: 30px; }
+      .contact-final { grid-template-columns: 1fr; gap: 30px; }
+      .contact-photo { max-width: 380px; }
       section.block { padding: 70px 0; }
     }
     @media (max-width: 520px) {
@@ -295,6 +311,7 @@
         <h2>A decade of brand building, now working for you.</h2>
         <p>Jessica Luberisse is a brand and innovation marketer with more than ten years launching products and building brands inside some of the world's best-known companies — from Unilever and Anheuser-Busch to Tarte Cosmetics and The Honey Pot Company.</p>
         <p>As an Innovation Brand Manager, she specializes in new product development and go-to-market strategy: taking ideas from concept to shelf, sharpening positioning, and building launch plans that actually move product. She now brings that big-brand expertise to founders and growing consumer brands as a freelance consultant.</p>
+        <p>Having built her own engaged audience as a lifestyle creator, Jessica understands modern brand-building from both sides — the boardroom and the feed — and helps clients show up with content that connects.</p>
         <p>She holds an M.S. in Marketing with a concentration in Brand Management from New York University, and works in both English and French.</p>
         <div class="stats">
           <div><div class="num">10+</div><div class="lbl">Years in brand &amp; innovation</div></div>
@@ -347,6 +364,26 @@
             <li>Cross-functional execution</li>
           </ul>
         </div>
+        <div class="svc">
+          <div class="no">04</div>
+          <h3>Content &amp; Personal Brand</h3>
+          <p>Turn your brand — or your founder story — into content that builds a real, engaged audience.</p>
+          <ul>
+            <li>Content &amp; social strategy</li>
+            <li>Personal brand building</li>
+            <li>Creator &amp; influencer partnerships</li>
+            <li>Editorial calendars &amp; direction</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry-offer">
+        <div>
+          <span class="eyebrow">Start here</span>
+          <h3>The Brand &amp; Strategy Sprint</h3>
+          <p>Not ready for a full engagement? In one to two weeks, get a focused audit of your brand, positioning, and go-to-market — plus a clear, prioritized action plan you can run with.</p>
+        </div>
+        <a href="#contact" class="btn btn-solid">Book a Sprint</a>
       </div>
     </div>
   </section>
@@ -408,18 +445,25 @@
 
   <!-- ================= CTA / CONTACT ================= -->
   <section class="block cta" id="contact">
-    <div class="wrap contact-simple">
-      <span class="eyebrow">Let's talk</span>
-      <h2>Ready to grow with intention?</h2>
-      <p>Whether you're a founder, a small business, a DTC brand, or a personal brand — tell me where you want to go and I'll reply within two business days to see if we're a fit.</p>
-      <div class="hero-cta contact-buttons">
-        <a href="mailto:hello@jessicaluberisse.com" class="btn btn-solid">Email Jessica</a>
-        <a href="https://www.linkedin.com/in/jessicaluberisse/" target="_blank" rel="noopener" class="btn btn-ghost">Connect on LinkedIn</a>
+    <div class="wrap contact-final">
+      <div class="contact-photo">
+        <img src="assets/jessica-accent.jpg" alt="Jessica Luberisse"
+             onerror="this.style.display='none';this.parentElement.querySelector('.ph').style.display='grid';" />
+        <div class="ph" style="display:none">assets/jessica-accent.jpg</div>
       </div>
-      <div class="contact-meta">
-        <a href="mailto:hello@jessicaluberisse.com"><span class="ic">✉</span> hello@jessicaluberisse.com</a>
-        <a href="https://instagram.com/jesssohappens_" target="_blank" rel="noopener"><span class="ic">◎</span> @jesssohappens_</a>
-        <span><span class="ic">◔</span> Replies within 2 business days</span>
+      <div class="contact-copy">
+        <span class="eyebrow">Let's talk</span>
+        <h2>Ready to grow with intention?</h2>
+        <p>Whether you're a founder, a small business, a DTC brand, or a personal brand — tell me where you want to go and I'll reply within two business days to see if we're a fit.</p>
+        <div class="hero-cta contact-buttons">
+          <a href="mailto:hello@jessicaluberisse.com" class="btn btn-solid">Email Jessica</a>
+          <a href="https://www.linkedin.com/in/jessicaluberisse/" target="_blank" rel="noopener" class="btn btn-ghost">Connect on LinkedIn</a>
+        </div>
+        <div class="contact-meta">
+          <a href="mailto:hello@jessicaluberisse.com"><span class="ic">✉</span> hello@jessicaluberisse.com</a>
+          <a href="https://instagram.com/jesssohappens_" target="_blank" rel="noopener"><span class="ic">◎</span> @jesssohappens_</a>
+          <span><span class="ic">◔</span> Replies within 2 business days</span>
+        </div>
       </div>
     </div>
   </section>
